@@ -13,22 +13,42 @@ export default function ContactPage() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', course: '', message: '' });
-  };
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const message = `
+New Course Enquiry - Indian Cyber Squad
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Course: ${formData.course || 'Not selected'}
+
+Message:
+${formData.message}
+  `.trim();
+
+  const whatsappUrl = `https://wa.me/919720975115?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappUrl, '_blank');
+
+  setFormData({
+    name: '',
+    email: '',
+    phone: '',
+    course: '',
+    message: '',
+  });
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const contactInfo = [
-    { icon: Phone, label: 'Phone', value: '+91 XXXXX XXXXX', href: 'tel:+91XXXXXXXXX' },
+    { icon: Phone, label: 'Phone', value: '+91 9720975115', href: 'tel:+919720975115' },
     { icon: Mail, label: 'Email', value: 'info@indiancybersquad.com', href: 'mailto:info@indiancybersquad.com' },
-    { icon: MapPin, label: 'Address', value: 'India', href: '#' },
+    { icon: MapPin, label: 'Address', value: 'Agra,Uttar Pradesh,India', href: '#' },
     { icon: Clock, label: 'Working Hours', value: 'Mon-Sat: 9:00 AM - 6:00 PM', href: '#' },
   ];
 
@@ -67,7 +87,7 @@ export default function ContactPage() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/91XXXXXXXXX"
+                href="https://wa.me/919720975115"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-green-600/20 border border-green-500/30 text-green-400 p-4 rounded-2xl hover:bg-green-600/30 transition-all duration-300 group"

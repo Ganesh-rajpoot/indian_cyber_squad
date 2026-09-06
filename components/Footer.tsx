@@ -147,7 +147,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3 text-gray-400">
                 <Phone size={16} className="text-[#00ffb4] mt-0.5 flex-shrink-0" />
-                <span>+91 XXXXX XXXXX</span>
+                <span>+91 9720975115</span>
               </li>
               <li className="flex items-start gap-3 text-gray-400">
                 <Mail size={16} className="text-[#00ffb4] mt-0.5 flex-shrink-0" />
@@ -155,7 +155,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 text-gray-400">
                 <MapPin size={16} className="text-[#00ffb4] mt-0.5 flex-shrink-0" />
-                <span>India</span>
+                <span>Agra, Uttar Pradesh, India</span>
               </li>
             </ul>
 

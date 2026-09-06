@@ -37,7 +37,6 @@ export default function CoursesPage() {
                     {course.lessons} lessons
                   </span>
                 </div>
-                console.log("FFFFFFFF",course.slug)
                 <Link
                   href={`/courses/${course.slug}`}
                   className="inline-block mt-4 text-[#00ffb4] font-medium text-sm group-hover:underline"

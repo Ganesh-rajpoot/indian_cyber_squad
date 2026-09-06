@@ -1,21 +1,27 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface SectionHeadingProps {
   /** The subtitle text (usually in uppercase with // prefix) */
   subtitle?: string;
+
   /** The main heading text */
   title: string;
+
   /** Optional highlighted text within the title */
   highlight?: string;
+
   /** Optional description text below the heading */
   description?: string;
+
   /** Optional alignment: 'center' (default) or 'left' */
   align?: 'center' | 'left';
+
   /** Optional custom className for additional styling */
   className?: string;
+
   /** Optional children for custom content */
   children?: ReactNode;
 }
@@ -34,8 +40,12 @@ export function SectionHeading({
     left: 'text-left',
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
+  // Animation variants
+  const containerVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
     visible: {
       opacity: 1,
       y: 0,
@@ -46,8 +56,11 @@ export function SectionHeading({
     },
   };
 
-  const subtitleVariants = {
-    hidden: { opacity: 0, x: -20 },
+  const subtitleVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      x: -20,
+    },
     visible: {
       opacity: 1,
       x: 0,
@@ -58,8 +71,11 @@ export function SectionHeading({
     },
   };
 
-  const titleVariants = {
-    hidden: { opacity: 0, y: 10 },
+  const titleVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
     visible: {
       opacity: 1,
       y: 0,
@@ -70,8 +86,11 @@ export function SectionHeading({
     },
   };
 
-  const descriptionVariants = {
-    hidden: { opacity: 0, y: 10 },
+  const descriptionVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
     visible: {
       opacity: 1,
       y: 0,
@@ -89,13 +108,17 @@ export function SectionHeading({
     }
 
     const parts = title.split(highlight);
+
     return (
       <>
         {parts.map((part, index) => (
           <span key={index}>
             {part}
+
             {index < parts.length - 1 && (
-              <span className="text-[#00ffb4]">{highlight}</span>
+              <span className="text-[#00ffb4]">
+                {highlight}
+              </span>
             )}
           </span>
         ))}
@@ -109,7 +132,10 @@ export function SectionHeading({
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{
+        once: true,
+        amount: 0.3,
+      }}
     >
       {/* Subtitle */}
       {subtitle && (
@@ -141,7 +167,7 @@ export function SectionHeading({
         </motion.p>
       )}
 
-      {/* Custom Children (for additional elements like CTA buttons) */}
+      {/* Custom Children */}
       {children && (
         <motion.div
           variants={descriptionVariants}
@@ -151,13 +177,16 @@ export function SectionHeading({
         </motion.div>
       )}
 
-      {/* Optional decorative line for left-aligned headings */}
+      {/* Decorative line for left-aligned headings */}
       {align === 'left' && (
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: 60 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{
+            duration: 0.6,
+            delay: 0.4,
+          }}
           className="h-0.5 bg-[#00ffb4] mt-4"
         />
       )}
