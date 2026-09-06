@@ -59,7 +59,7 @@ export default function AboutPage() {
           <div className="relative h-[400px] rounded-2xl overflow-hidden border border-[#00ffb4]/20">
      <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border border-[#00ffb4]/20 bg-black">
   <Image
-    src="/static/image/deepak.jpg"
+    src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000&auto=format&fit=crop"
     alt="Cybersecurity mission"
     fill
     sizes="(max-width: 768px) 100vw, 50vw"
