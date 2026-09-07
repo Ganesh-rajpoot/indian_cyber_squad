@@ -26,54 +26,90 @@ body {
 } */
 
 @import "tailwindcss";
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 
-@layer base {
-  * {
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-
-  body {
-    background: #050505;
-    color: white;
-    -webkit-font-smoothing: antialiased;
-  }
+/* Custom theme configuration for Tailwind CSS v4 */
+@theme {
+  /* Colors */
+  --color-cyber-green: #00ffb4;
+  --color-cyber-dark: #050505;
+  --color-cyber-dark2: #07110d;
+  --color-cyber-charcoal: #0a1210;
+  
+  /* Font families */
+  --font-family-sans: var(--font-space), Inter, sans-serif;
+  --font-family-mono: var(--font-mono), 'JetBrains Mono', monospace;
 }
 
-@layer components {
-  .glass-panel {
-    @apply bg-[#0a1210]/55 backdrop-blur-xl border border-[#00ffb4]/10;
-  }
-  
-  .terminal-window {
-    @apply bg-[#0b1412] border border-[#1a3a32] rounded-2xl shadow-2xl;
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 ease-out;
-  }
-  .card-hover:hover {
-    @apply -translate-y-2 border-[#00ffb4]/60;
-    box-shadow: 0 12px 40px -8px rgba(0,255,180,0.15);
-  }
-  
+/* Base styles */
+* {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background: #050505;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Component styles - Using plain CSS since @apply is limited in v4 */
+.glass-panel {
+  background: rgba(10, 18, 16, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 180, 0.1);
+  border-radius: 1rem;
+}
+
+.terminal-window {
+  background: #0b1412;
+  border: 1px solid #1a3a32;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 255, 180, 0.6);
+  box-shadow: 0 12px 40px -8px rgba(0, 255, 180, 0.15);
+}
+
+.section-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
   .section-heading {
-    @apply text-4xl md:text-5xl font-bold text-white text-center;
+    font-size: 3rem;
   }
 }
 
-@layer utilities {
-  .text-glow {
-    text-shadow: 0 0 12px rgba(0,255,180,0.4);
-  }
-  
-  .bg-cyber-grid {
-    background-image: 
-      linear-gradient(rgba(0,255,180,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,255,180,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+/* Utility classes */
+.text-glow {
+  text-shadow: 0 0 12px rgba(0, 255, 180, 0.4);
+}
+
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 180, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 180, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Account for fixed TopBar and Navbar */
+main {
+  padding-top: 76px; /* 36px (TopBar) + 40px (Navbar on mobile) */
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-top: 100px; /* 36px (TopBar) + 64px (Navbar on desktop) */
   }
 }
 
@@ -121,13 +157,36 @@ html {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #050505;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #00ffb4;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #00e6a0;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 255, 180, 0.3);
+  color: white;
+}
+
+/* Pulse animation for status indicators */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

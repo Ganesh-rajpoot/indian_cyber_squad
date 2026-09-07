@@ -6,7 +6,7 @@ import { CyberBackground } from './CyberBackground';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-10">
       <CyberBackground />
       
       <div className="max-w-7xl mx-auto px-4 relative z-10">

@@ -325,3 +325,10 @@ export const navLinks = [
   { name: 'Blogs', href: '/blogs' },
   { name: 'Contact Us', href: '/contact' },
 ];
+
+// Add legal pages to your data
+export const legalPages = [
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+  { name: 'Terms & Conditions', href: '/terms' },
+  { name: 'Disclaimer', href: '/disclaimer' },
+];
