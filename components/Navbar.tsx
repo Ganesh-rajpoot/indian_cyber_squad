@@ -240,6 +240,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
   { name: 'Courses', href: '/courses' },
+  { name: 'News', href: '/news' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Blogs', href: '/blogs' },
   { name: 'Contact Us', href: '/contact' },

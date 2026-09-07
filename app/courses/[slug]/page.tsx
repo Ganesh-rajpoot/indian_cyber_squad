@@ -277,8 +277,73 @@
 
 
 // app/courses/[slug]/page.tsx (Simplified version)
+// import { courses } from '@/lib/data';
+// import Link from 'next/link';
+
+// // This tells Next.js which pages to generate
+// export function generateStaticParams() {
+//   return courses.map((course) => ({
+//     slug: course.slug,
+//   }));
+// }
+
+// export default function CoursePage({ params }: { params: { slug: string } }) {
+//   const course = courses.find(c => c.slug === params.slug);
+  
+//   if (!course) {
+//     return (
+//       <div className="min-h-screen pt-24 bg-[#050505] text-white flex items-center justify-center">
+//         <div className="text-center">
+//           <h1 className="text-4xl font-bold mb-4">Course Not Found</h1>
+//           <Link href="/courses" className="text-[#00ffb4] hover:underline">
+//             ← Back to Courses
+//           </Link>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="min-h-screen pt-24 bg-[#050505] text-white">
+//       <div className="max-w-4xl mx-auto px-4">
+//         <Link href="/courses" className="text-[#00ffb4] hover:underline inline-block mb-6">
+//           ← Back to Courses
+//         </Link>
+        
+//         <div className="glass-panel p-8 rounded-2xl border border-[#00ffb4]/20">
+//           <div className="text-6xl mb-4">{course.icon}</div>
+//           <h1 className="text-4xl font-bold mb-2">{course.title}</h1>
+//           <p className="text-gray-400 text-lg mb-4">{course.longDescription || course.description}</p>
+          
+//           <div className="flex flex-wrap gap-3 mb-6">
+//             <span className="bg-[#00ffb4]/10 text-[#00ffb4] px-3 py-1 rounded-full text-sm">
+//               {course.level}
+//             </span>
+//             <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
+//               ⏱ {course.duration}
+//             </span>
+//             <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
+//               📚 {course.lessons} lessons
+//             </span>
+//           </div>
+          
+//           <Link
+//             href="/contact"
+//             className="inline-block bg-[#00ffb4] text-[#050505] font-semibold px-8 py-3 rounded-full hover:bg-[#00e6a0] transition"
+//           >
+//             Enroll Now →
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
 import { courses } from '@/lib/data';
 import Link from 'next/link';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
 // This tells Next.js which pages to generate
 export function generateStaticParams() {
@@ -287,27 +352,51 @@ export function generateStaticParams() {
   }));
 }
 
-export default function CoursePage({ params }: { params: { slug: string } }) {
-  const course = courses.find(c => c.slug === params.slug);
+// Generate metadata for SEO
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const course = courses.find(c => c.slug === slug);
   
   if (!course) {
-    return (
-      <div className="min-h-screen pt-24 bg-[#050505] text-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Course Not Found</h1>
-          <Link href="/courses" className="text-[#00ffb4] hover:underline">
-            ← Back to Courses
-          </Link>
-        </div>
-      </div>
-    );
+    return {
+      title: 'Course Not Found',
+    };
   }
+
+  return {
+    title: `${course.title} | Indian Cyber Squad Courses`,
+    description: course.description,
+  };
+}
+
+// Page component - params is now a Promise
+export default async function CoursePage({ params }: { params: Promise<{ slug: string }> }) {
+  // Await the params to get the slug
+  const { slug } = await params;
+  
+  // Find the course based on the slug
+  const course = courses.find(c => c.slug === slug);
+  
+  // If course not found, show 404
+  if (!course) {
+    notFound();
+  }
+
+  const learningOutcomes = [
+    'Core concepts and fundamentals',
+    'Hands-on practical skills',
+    'Real-world scenarios',
+    'Industry best practices',
+    'Troubleshooting techniques',
+    'Security implementation',
+  ];
 
   return (
     <div className="min-h-screen pt-24 bg-[#050505] text-white">
       <div className="max-w-4xl mx-auto px-4">
-        <Link href="/courses" className="text-[#00ffb4] hover:underline inline-block mb-6">
-          ← Back to Courses
+        <Link href="/courses" className="text-[#00ffb4] hover:underline inline-block mb-6 group">
+          <span className="group-hover:-translate-x-1 inline-block transition-transform">←</span>
+          Back to Courses
         </Link>
         
         <div className="glass-panel p-8 rounded-2xl border border-[#00ffb4]/20">
@@ -325,11 +414,44 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
               📚 {course.lessons} lessons
             </span>
+            {course.certificate && (
+              <span className="bg-[#00ffb4]/10 text-[#00ffb4] px-3 py-1 rounded-full text-sm">
+                🎓 Certificate Included
+              </span>
+            )}
+          </div>
+
+          {/* What You'll Learn Section */}
+          <div className="mt-8 pt-6 border-t border-[#00ffb4]/10">
+            <h2 className="text-2xl font-bold text-white mb-4">What You'll Learn</h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {learningOutcomes.map((item, index) => (
+                <li key={index} className="flex items-center gap-2 text-gray-300">
+                  <span className="text-[#00ffb4]">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Course Includes Section */}
+          <div className="mt-8 pt-6 border-t border-[#00ffb4]/10">
+            <h2 className="text-2xl font-bold text-white mb-4">Course Includes</h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-300">
+              <li className="flex items-center gap-2">📹 Video lectures</li>
+              <li className="flex items-center gap-2">📝 Practical assignments</li>
+              <li className="flex items-center gap-2">🔬 Hands-on labs</li>
+              <li className="flex items-center gap-2">📊 Quizzes & assessments</li>
+              {course.certificate && (
+                <li className="flex items-center gap-2">🎓 Certificate of completion</li>
+              )}
+              <li className="flex items-center gap-2">💬 24/7 support</li>
+            </ul>
           </div>
           
           <Link
             href="/contact"
-            className="inline-block bg-[#00ffb4] text-[#050505] font-semibold px-8 py-3 rounded-full hover:bg-[#00e6a0] transition"
+            className="inline-block mt-8 bg-[#00ffb4] text-[#050505] font-semibold px-8 py-3 rounded-full hover:bg-[#00e6a0] transition shadow-lg shadow-[#00ffb4]/20 hover:shadow-[#00ffb4]/40"
           >
             Enroll Now →
           </Link>
