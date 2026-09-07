@@ -90,11 +90,11 @@ export function TopBar() {
           <div className="flex items-center gap-4 lg:gap-6">
             {/* Phone */}
             <a 
-              href="tel:+91XXXXXXXXX" 
+              href="tel:+919720975115" 
               className="flex items-center gap-1.5 text-gray-400 hover:text-[#00ffb4] transition-colors duration-200 group"
             >
               <Phone size={13} className="text-[#00ffb4] group-hover:scale-110 transition-transform" />
-              <span className="font-medium">+91 XXXXX XXXXX</span>
+              <span className="font-medium">+91 9720975115</span>
             </a>
             
             <span className="text-gray-700">|</span>
@@ -113,7 +113,7 @@ export function TopBar() {
             {/* Address */}
             <span className="flex items-center gap-1.5 text-gray-400">
               <MapPin size={13} className="text-[#00ffb4]" />
-              <span className="font-medium">India</span>
+              <span className="font-medium">Agra, Uttar Pradesh, India</span>
             </span>
           </div>
 
@@ -129,7 +129,7 @@ export function TopBar() {
             
             {/* WhatsApp */}
             <a 
-              href="https://wa.me/91XXXXXXXXX" 
+              href="https://wa.me/919720975115" 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-green-400 hover:text-green-300 transition-colors duration-200 group"
