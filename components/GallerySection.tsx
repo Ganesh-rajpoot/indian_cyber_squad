@@ -41,37 +41,37 @@ const galleryItems = [
     id: 1,
     title: 'Cybersecurity Training',
     category: 'Classroom',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=800&fit=crop&q=80',
+    image: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748538/IMG_7811.JPG_htbdje.jpg',
   },
   {
     id: 2,
     title: 'Ethical Hacking Workshop',
     category: 'Workshop',
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=800&fit=crop&q=80',
+    image: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_2717.JPG_kysvwi.jpg',
   },
   {
     id: 3,
     title: 'Network Security Lab',
     category: 'Labs',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=800&fit=crop&q=80',
+    image: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_7807.JPG_hfh4n5.jpg',
   },
   {
     id: 4,
     title: 'Cybersecurity Research',
     category: 'Training',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=800&fit=crop&q=80',
+    image: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_1393.JPG_ocjqf3.jpg',
   },
   {
     id: 5,
     title: 'Tech Conference Event',
     category: 'Events',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=800&fit=crop&q=80',
+    image: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_7816.JPG_eeunmd.jpg',
   },
   {
     id: 6,
     title: 'Students Learning',
     category: 'Students',
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=800&fit=crop&q=80',
+    image: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748538/IMG_7809.JPG_dxkugc.jpg',
   },
 ];
 

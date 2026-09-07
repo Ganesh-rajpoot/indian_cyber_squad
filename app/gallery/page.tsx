@@ -3,15 +3,15 @@ import Image from 'next/image';
 
 export default function GalleryPage() {
   const galleryImages = [
-    { id: 1, category: 'Classroom', url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop' },
-    { id: 2, category: 'Workshop', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop' },
-    { id: 3, category: 'Labs', url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop' },
-    { id: 4, category: 'Training', url: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop' },
-    { id: 5, category: 'Events', url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop' },
-    { id: 6, category: 'Students', url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop' },
-    { id: 7, category: 'Classroom', url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop' },
-    { id: 8, category: 'Workshop', url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop' },
-    { id: 9, category: 'Labs', url: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop' },
+    { id: 1, category: 'Classroom', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748539/IMG_4111.JPG_yjknqu.jpg' },
+    { id: 2, category: 'Workshop', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748538/IMG_7814.JPG_tchxdj.jpg' },
+    { id: 3, category: 'Labs', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748538/IMG_7811.JPG_htbdje.jpg' },
+    { id: 4, category: 'Training', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748538/IMG_7809.JPG_dxkugc.jpg' },
+    { id: 5, category: 'Events', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748538/IMG_7812.JPG_e6uneo.jpg' },
+    { id: 6, category: 'Students', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_7815.JPG_zek2b8.jpg' },
+    { id: 7, category: 'Classroom', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_7805.JPG_rxlo8i.jpg' },
+    { id: 8, category: 'Workshop', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_7804.JPG_ta0ep5.jpg' },
+    { id: 9, category: 'Labs', url: 'https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748537/IMG_7816.JPG_eeunmd.jpg' },
   ];
 
   const categories = ['All', 'Classroom', 'Workshop', 'Labs', 'Training', 'Events', 'Students'];

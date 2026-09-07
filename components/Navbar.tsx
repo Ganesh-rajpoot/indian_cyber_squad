@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { TopBar } from './TopBar';
 import { Menu, X } from 'lucide-react';
+import { MdHeight } from 'react-icons/md';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -25,6 +27,10 @@ export function Navbar() {
   }, []);
 
   return (
+    
+    
+
+
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-[#050505] border-b border-[#00ffb4]/15' 
@@ -32,13 +38,18 @@ export function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-white">
+          {/* Logo + Brand */}
+          <a href="/" className="flex items-center gap-3 shrink-0">
+            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden rounded-lg bg-white">
+              <img
+                src="https://res.cloudinary.com/dhwhnvqkr/image/upload/v1788748539/IMG_4983_h8ch9k.png"
+                alt="Indian Cyber Squad Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-white whitespace-nowrap">
               INDIAN CYBER SQUAD
-            </span>
-            <span className="hidden md:inline-block text-[10px] font-mono text-[#00ffb4] bg-[#00ffb4]/10 px-2 py-0.5 rounded">
-              ETHICAL
             </span>
           </a>
 
@@ -102,5 +113,6 @@ export function Navbar() {
         </div>
       </div>
     </nav>
+    
   );
 }

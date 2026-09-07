@@ -35,6 +35,7 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CursorFollower } from '@/components/CursorFollower';
+import { TopBar } from '@/components/TopBar';
 
 const inter = Inter({ subsets: ['latin'] });
 const spaceGrotesk = Space_Grotesk({ 
@@ -65,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans bg-[#050505] text-white antialiased`}>
+        <TopBar />
         <CursorFollower />
         <Navbar />
         <main>{children}</main>
