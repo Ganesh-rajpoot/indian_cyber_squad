@@ -38,7 +38,16 @@ body {
   /* Font families */
   --font-family-sans: var(--font-space), Inter, sans-serif;
   --font-family-mono: var(--font-mono), 'JetBrains Mono', monospace;
+
+
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
+
 
 /* Base styles */
 * {
@@ -189,4 +198,132 @@ html {
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+/* At the end of your globals.css */
+
+/* Fix for mobile - reduce padding on hero */
+@media (max-width: 640px) {
+  /* Reduce section padding on mobile */
+  section {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  /* Reduce main content padding */
+  main {
+    padding-top: 48px !important; /* Navbar height on mobile */
+  }
+  
+  /* Reduce hero section padding */
+  .hero-section {
+    padding-top: 0 !important;
+    min-height: 90vh !important;
+  }
+  
+  /* Better spacing for headings */
+  h1 {
+    margin-top: 0 !important;
+  }
+  
+  /* Reduce gap between elements */
+  .space-y-3 {
+    gap: 0.5rem !important;
+  }
+  .space-y-4 {
+    gap: 0.75rem !important;
+  }
+  .space-y-6 {
+    gap: 1rem !important;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 380px) {
+  main {
+    padding-top: 44px !important;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+  
+  .gap-2 {
+    gap: 0.25rem !important;
+  }
+}
+
+/* Mobile menu should start from top */
+@media (max-width: 1024px) {
+  .fixed.inset-x-0 {
+    top: 48px !important;
+  }
+}
+
+
+/* Add these styles at the end of your globals.css */
+
+/* Mobile first - reduce padding */
+main {
+  padding-top: 48px; /* Mobile navbar height */
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-top: 100px; /* Desktop: TopBar + Navbar */
+  }
+}
+
+/* Reduce hero section spacing on mobile */
+@media (max-width: 640px) {
+  .min-h-screen {
+    min-height: 90vh !important;
+  }
+  
+  /* Reduce spacing between navbar and hero */
+  .pt-12 {
+    padding-top: 0.5rem !important;
+  }
+  
+  .pt-16 {
+    padding-top: 0.5rem !important;
+  }
+  
+  .pt-20 {
+    padding-top: 0.5rem !important;
+  }
+  
+  /* Reduce gap between hero elements */
+  .space-y-3 > * + * {
+    margin-top: 0.5rem !important;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 0.75rem !important;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+}
+
+/* Ultra small screens */
+@media (max-width: 360px) {
+  main {
+    padding-top: 44px !important;
+  }
+  
+  .text-2xl {
+    font-size: 1.1rem !important;
+  }
+  
+  .text-xl {
+    font-size: 0.95rem !important;
+  }
+  
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
 }

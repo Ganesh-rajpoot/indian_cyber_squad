@@ -29,6 +29,54 @@
 // }
 
 
+// import type { Metadata } from 'next';
+// import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+// import './globals.css';
+// import { Navbar } from '@/components/Navbar';
+// import { Footer } from '@/components/Footer';
+// import { CursorFollower } from '@/components/CursorFollower';
+// import { TopBar } from '@/components/TopBar';
+
+// const inter = Inter({ subsets: ['latin'] });
+// const spaceGrotesk = Space_Grotesk({ 
+//   subsets: ['latin'], 
+//   variable: '--font-space' 
+// });
+// const jetbrainsMono = JetBrains_Mono({ 
+//   subsets: ['latin'], 
+//   variable: '--font-mono' 
+// });
+
+// export const metadata: Metadata = {
+//   title: 'Indian Cyber Squad | Cybersecurity, CCNA & Networking Courses',
+//   description: 'Learn cybersecurity, CCNA, networking and IT infrastructure with Indian Cyber Squad. Explore practical, career-focused courses designed to build real-world technology and cybersecurity skills.',
+//   keywords: ['cybersecurity', 'CCNA', 'networking', 'ethical hacking', 'MCSA', 'Indian Cyber Squad'],
+//   openGraph: {
+//     title: 'Indian Cyber Squad | Cybersecurity, CCNA & Networking Courses',
+//     description: 'Master cybersecurity with practical, career-focused training.',
+//     images: ['/og-image.jpg'],
+//   },
+// };
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <html lang="en" className="dark">
+//       <body className={`${inter.className} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans bg-[#050505] text-white antialiased`}>
+//         <TopBar />
+//         <CursorFollower />
+//         <Navbar />
+//         <main>{children}</main>
+//         <Footer />
+//       </body>
+//     </html>
+//   );
+// }
+
+
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
@@ -69,7 +117,7 @@ export default function RootLayout({
         <TopBar />
         <CursorFollower />
         <Navbar />
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>
