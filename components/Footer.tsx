@@ -188,12 +188,25 @@ export function Footer() {
           <p className="text-gray-500 text-xs text-center md:text-left">
             © {currentYear} <span className="text-[#00ffb4]">Indian Cyber Squad</span>. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-3 text-xs">
+          {/* <div className="flex items-center gap-3 text-xs">
             <span className="text-gray-600">🔒</span>
-            <span className="text-gray-500">Secure & Encrypted</span>
+            <span className="text-gray-500">Developed By</span>
             <span className="w-px h-4 bg-gray-700"></span>
-            <span className="text-gray-500">⚡ SYSTEM ONLINE</span>
-          </div>
+            <span className="text-gray-500"></span>
+          </div> */}
+          <div className="flex items-center gap-3 text-xs">
+          {/* <span className="text-gray-600">🔒</span> */}
+          <span className="text-gray-500">Developed By</span>
+          <span className="w-px h-4 bg-gray-700"></span>
+          <a 
+            href="https://ganesh-rajpoot.github.io/portpolio/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-gray-500 hover:text-[#00ffb4] transition-colors duration-200"
+          >
+            <span className="text-[#00ffb4]">Ganesh Rajpoot</span>
+          </a>
+        </div>
         </div>
       </div>
     </footer>
