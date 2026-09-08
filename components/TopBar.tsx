@@ -111,10 +111,10 @@ export function TopBar() {
             <span className="text-gray-700">|</span>
             
             {/* Address */}
-            <span className="flex items-center gap-1.5 text-gray-400">
+            {/* <span className="flex items-center gap-1.5 text-gray-400">
               <MapPin size={13} className="text-[#00ffb4]" />
               <span className="font-medium">Agra, Uttar Pradesh, India</span>
-            </span>
+            </span> */}
           </div>
 
           {/* Right Side - Quick Actions */}
