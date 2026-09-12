@@ -283,7 +283,7 @@ export function Navbar() {
 
             {/* Short version for mobile */}
             <span className="text-sm font-bold tracking-tight text-white whitespace-nowrap block md:hidden">
-              ICS
+              INDIAN CYBER SQUAD
             </span>
             {/* Full version for desktop */}
             <span className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold tracking-tight text-white whitespace-nowrap hidden md:block">
